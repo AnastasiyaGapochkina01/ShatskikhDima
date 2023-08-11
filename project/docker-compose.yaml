@@ -1,0 +1,13 @@
+---
+version: '3.1'
+
+services:
+  flask:
+    container_name: flask-app
+    build: .
+    image: docker_flask
+    restart: on-failure
+    ports:
+      - 5000:5000
+    volumes:
+      - ./templates/index.html:/app/templates/index.html

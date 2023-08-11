@@ -1,0 +1,7 @@
+docker exec -it ubuntu_custom ./script.sh
+docker exec -it ubuntu_custom ./script.py
+docker exec -it golang_multistage ./hello
+
+Docker Compose по умолчанию читает два файла: docker-compose.yml и docker-compose.override.yml. 
+В файле docker-compose-override.yml можно хранить переопределения для существующих сервисов или определять новые. 
+Чтобы использовать несколько файлов (или файл переопределения с другим именем), необходимо передать -f в docker-compose up

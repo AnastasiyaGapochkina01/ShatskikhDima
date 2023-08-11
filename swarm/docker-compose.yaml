@@ -1,0 +1,15 @@
+
+---
+version: '2.4'
+
+services:
+  caddy-build:
+    container_name: caddy-build
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - caddy_version=2.6.4
+        - docker_proxy_version=v2.8.4
+        - certmagic_s3_version=v1.2.3
+        - coraza_caddy_version=v1.2.2

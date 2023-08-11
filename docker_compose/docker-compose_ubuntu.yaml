@@ -1,0 +1,10 @@
+---
+version: '3.1'
+
+services:
+  ubuntu:
+    container_name: ubuntu_custom
+    build: ./ubuntu_custom
+    image: ubuntu:custom
+    restart: on-failure
+    command: ["sleep","infinity"]

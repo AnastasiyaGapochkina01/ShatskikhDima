@@ -1,0 +1,35 @@
+---
+version: '3.1'
+
+services:
+  mongo:
+    container_name: mongo_local
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mongo_network
+
+
+  mongo_express:
+    container_name: mongo_local_express
+    image: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: rootpassword
+      ME_CONFIG_MONGODB_URL: mongodb://root:rootpassword@mongo:27017/
+    volumes:
+      - mongo_data_express:/data/db
+    networks:
+      - mongo_network
+
+volumes:
+  mongo_data:
+  mongo_data_express:
+
+networks:
+  mongo_network:
+    driver: bridge
